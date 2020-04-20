@@ -9,7 +9,6 @@ def get_last_page(url):
     last_page = pages[-1].get_text(strip=True)
     return int(last_page)
 
-
 def extract_job(html):
     title = html.find("h2").find("a")["title"]
     company, location = html.find("h3").find_all(
@@ -36,7 +35,6 @@ def extract_jobs(last_page, url):
             job = extract_job(result)
             jobs.append(job)
     return jobs
-
 
 def get_jobs(word):
     url = f"https://stackoverflow.com/jobs?q={word}&sort=i"
